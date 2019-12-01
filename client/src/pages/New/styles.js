@@ -12,7 +12,7 @@ export const Container = styled.div`
 export const Content = styled.div`
     overflow: auto;
     max-width: 1000px;
-    max-height: 650px;
+    max-height: 700px;
     width: 100%;
     display: flex;
     flex-direction: column;

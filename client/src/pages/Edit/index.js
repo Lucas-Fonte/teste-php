@@ -1,4 +1,6 @@
-import React from 'react';
+/* eslint-disable react/forbid-prop-types */
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useState, useEffect } from 'react';
 import { Form, Input, Scope } from '@rocketseat/unform';
 import { toast } from 'react-toastify';
 import PropTypes from 'prop-types';
@@ -13,8 +15,21 @@ import {
 } from './styles';
 
 export default function Edit({ match }) {
-    async function handleNewUser(data) {
-        const response = await api.post('users', data);
+    const [currentUser, setCurrentUser] = useState('');
+
+    async function loadCurrentUser(id) {
+        const response = await api.get(`users/${id}`);
+        const { data } = response;
+
+        setCurrentUser(data);
+    }
+
+    useEffect(() => {
+        loadCurrentUser(match.params.id);
+    }, []);
+
+    async function handleUpdateUser(data) {
+        const response = await api.put(`users/${match.params.id}`, data);
         if (response) {
             toast.success('Usuário atualizado');
         }
@@ -22,8 +37,8 @@ export default function Edit({ match }) {
     return (
         <Container>
             <Content>
-                <h1>Editar {match.params.id}</h1>
-                <Form onSubmit={handleNewUser}>
+                <h1>Dados do usuário {match.params.id}</h1>
+                <Form initialData={currentUser} onSubmit={handleUpdateUser}>
                     <FormContent>
                         <User>
                             <h1>Usuário</h1>
@@ -120,5 +135,5 @@ export default function Edit({ match }) {
 }
 
 Edit.propTypes = {
-    match: PropTypes.number.isRequired
+    match: PropTypes.object.isRequired
 };

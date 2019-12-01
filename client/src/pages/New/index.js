@@ -22,7 +22,7 @@ export default function New() {
     return (
         <Container>
             <Content>
-                <h1>Novo</h1>
+                <h1>Novo usuário</h1>
                 <Form onSubmit={handleNewUser}>
                     <FormContent>
                         <User>

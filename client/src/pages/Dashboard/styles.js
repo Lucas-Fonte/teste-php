@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { darken } from 'polished';
 
 export const Container = styled.div`
     display: flex;
@@ -9,7 +10,6 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-    overflow: auto;
     max-width: 1000px;
     height: 600px;
     width: 100%;
@@ -88,4 +88,37 @@ export const UserInfo = styled.div`
             color: #000;
         }
     }
+`;
+
+export const Title = styled.div`
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+
+    div {
+        max-width: 80px;
+        padding: 5px;
+        background: #f05053;
+        border-radius: 4px;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        font-weight: bold;
+        cursor: pointer;
+
+        &:hover {
+            background: ${darken(0.05, '#f05053')};
+        }
+    }
+`;
+
+export const List = styled.div`
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
 `;
