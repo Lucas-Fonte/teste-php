@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Form, Input, Scope } from '@rocketseat/unform';
-import * as Yup from 'yup';
 import { toast } from 'react-toastify';
 import api from '../../services/api';
 import {
@@ -13,28 +12,17 @@ import {
 } from './styles';
 
 export default function Dashboard() {
-    const [users, setUsers] = useState([]);
-
-    async function loadUsers() {
-        const response = await api.get('users');
-        const { data } = response;
-
-        setUsers(data);
+    async function handleNewUser(data) {
+        const response = await api.post('users', data);
+        if (response) {
+            toast.success('Usuário atualizado');
+        }
     }
-
-    async function handleNewSubmit(data) {
-        console.log(data);
-    }
-
-    useEffect(() => {
-        loadUsers();
-    }, []);
-
     return (
         <Container>
             <Content>
                 <h1>Editar</h1>
-                <Form onSubmit={handleNewSubmit}>
+                <Form onSubmit={handleNewUser}>
                     <FormContent>
                         <User>
                             <h1>Usuário</h1>

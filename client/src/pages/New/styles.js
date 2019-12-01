@@ -47,28 +47,6 @@ export const Content = styled.div`
             }
         }
 
-        textarea {
-            background: rgba(0, 0, 0, 0.6);
-            border: 0;
-            border-radius: 4px;
-            height: 60px;
-            padding: 10px;
-            color: #fff;
-            margin: 0 0 10px;
-
-            &::placeholder {
-                color: rgba(255, 255, 255, 0.7);
-            }
-        }
-
-        span {
-            color: #f05053;
-            font-size: 12px;
-            align-self: flex-start;
-            margin: 0 0 10px;
-            font-weight: bold;
-        }
-
         button {
             margin-top: 4px;
             width: 200px;
@@ -85,10 +63,6 @@ export const Content = styled.div`
                 background: ${darken(0.05, '#f05053')};
             }
         }
-    }
-
-    ul {
-        margin-top: 40px;
     }
 `;
 

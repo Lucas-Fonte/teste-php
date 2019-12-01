@@ -1,7 +1,9 @@
 import React from 'react';
 
-// import { Container } from './styles';
+import { Container } from './styles';
 
-export default function Card() {
-    return <div />;
+export default function Card({ id, name }) {
+    return <Container>
+
+    </Container>;
 }
