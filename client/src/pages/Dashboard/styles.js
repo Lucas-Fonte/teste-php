@@ -34,6 +34,7 @@ export const Card = styled.li`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 1px solid rgba(171, 171, 171, 0.4);
 
     aside {
         display: flex;
@@ -44,13 +45,48 @@ export const Card = styled.li`
 export const UserButtons = styled.div`
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    width: 50px;
+    margin-right: 20px;
+
+    .edit {
+        color: rgba(171, 171, 171, 0.8);
+        font-size: 18px;
+        cursor: pointer;
+
+        :hover {
+            color: #000;
+        }
+    }
+
+    .delete {
+        color: rgba(171, 171, 171, 0.8);
+        font-size: 18px;
+        cursor: pointer;
+
+        :hover {
+            color: #000;
+        }
+    }
 `;
 
 export const UserInfo = styled.div`
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
 
     strong {
         margin-right: 10px;
+    }
+
+    span {
+        color: rgba(0, 0, 0, 0.7);
+        font-size: 18px;
+        cursor: pointer;
+
+        :hover {
+            color: #000;
+        }
     }
 `;

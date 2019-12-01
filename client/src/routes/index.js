@@ -11,8 +11,8 @@ export default function Routes() {
         <Switch>
             <Route path="/" exact component={Dashboard} />
             <Route path="/new" exact component={New} />
-            <Route path="/edit" exact component={Edit} />
-            <Route path="/details" component={Details} />
+            <Route path="/edit/:id" exact component={Edit} />
+            <Route path="/details/:id" component={Details} />
             <Redirect from="*" to="/" />
         </Switch>
     );

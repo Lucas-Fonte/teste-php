@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { MdModeEdit, MdDeleteForever } from 'react-icons/md';
+import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import api from '../../services/api';
 import { Container, Content, Card, UserInfo, UserButtons } from './styles';
@@ -14,7 +16,8 @@ export default function Dashboard() {
     }
 
     async function handleDelete(id) {
-        await api.delete(`users/${id}`);
+        // await api.delete(`users/${id}`);
+        toast.error('Usuário deletado');
     }
 
     useEffect(() => {
@@ -30,13 +33,20 @@ export default function Dashboard() {
                         <Card key={user.name + Math.random()}>
                             <UserInfo>
                                 <strong>{user.id}</strong>
-                                <span>{user.name}</span>
+                                <Link to={`details/${user.id}`}>
+                                    <span>{user.name}</span>
+                                </Link>
                             </UserInfo>
 
                             <aside>
                                 <UserButtons>
-                                    <h1>t</h1>
-                                    <h1>t</h1>
+                                    <Link to={`edit/${user.id}`}>
+                                        <MdModeEdit className="edit" />
+                                    </Link>
+                                    <MdDeleteForever
+                                        className="delete"
+                                        onClick={handleDelete}
+                                    />
                                 </UserButtons>
                             </aside>
                         </Card>
