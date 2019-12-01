@@ -1,6 +1,7 @@
 import React from 'react';
 import { Form, Input, Scope } from '@rocketseat/unform';
 import { toast } from 'react-toastify';
+import PropTypes from 'prop-types';
 import api from '../../services/api';
 import {
     Container,
@@ -11,7 +12,7 @@ import {
     FormContent
 } from './styles';
 
-export default function Dashboard() {
+export default function Edit({ match }) {
     async function handleNewUser(data) {
         const response = await api.post('users', data);
         if (response) {
@@ -21,7 +22,7 @@ export default function Dashboard() {
     return (
         <Container>
             <Content>
-                <h1>Editar</h1>
+                <h1>Editar {match.params.id}</h1>
                 <Form onSubmit={handleNewUser}>
                     <FormContent>
                         <User>
@@ -117,3 +118,7 @@ export default function Dashboard() {
         </Container>
     );
 }
+
+Edit.propTypes = {
+    match: PropTypes.number.isRequired
+};

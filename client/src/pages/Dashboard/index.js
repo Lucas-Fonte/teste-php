@@ -17,7 +17,7 @@ export default function Dashboard() {
 
     async function handleDelete(id) {
         // await api.delete(`users/${id}`);
-        toast.error('Usuário deletado');
+        toast.error(`Usuário ${id} deletado`);
     }
 
     useEffect(() => {
@@ -45,7 +45,7 @@ export default function Dashboard() {
                                     </Link>
                                     <MdDeleteForever
                                         className="delete"
-                                        onClick={handleDelete}
+                                        onClick={() => handleDelete(user.id)}
                                     />
                                 </UserButtons>
                             </aside>

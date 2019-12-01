@@ -11,7 +11,7 @@ import {
     FormContent
 } from './styles';
 
-export default function Dashboard() {
+export default function New() {
     async function handleNewUser(data) {
         const response = await api.post('users', data);
         if (response) {
