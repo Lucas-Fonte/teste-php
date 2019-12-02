@@ -22,7 +22,8 @@ Para configurar o projeto
 ```bash
 docker-compose up
 ```
-O arquivo **.env** já possui as mesmas configurações do docker, para iniciar com as mesmas basta copiar o **.env.example**. 
+O arquivo **.env.example** já possui as mesmas configurações do docker, para iniciar com as mesmas basta copiar o mesmo como 
+**.env**.
  
 Use um package manager, [composer](https://getcomposer.org/), para instalar as dependências.
 
